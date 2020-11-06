@@ -1,4 +1,4 @@
 {
     "signupPath": "/api/auth/signup",
-    "":""
+    "loginPath":"/api/auth/login"
 }
