@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     },() =>{
       console.log("Error requesting for login")
     },() => {
-       console.log("Login requested")
+       console.log("Login requested");
     })
   }
 
