@@ -10,8 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  private loginForm: FormGroup;
-  private loginRequestPayload: LoginRequestPayload;
+  loginForm: FormGroup;
+  loginRequestPayload: LoginRequestPayload;
 
   constructor(private authService: AuthService) { 
     this.loginRequestPayload = {

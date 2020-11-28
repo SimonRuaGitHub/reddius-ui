@@ -10,8 +10,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  private signupForm: FormGroup;
-  private signupRequestPayload: SignupRequestPayload;
+  signupForm: FormGroup;
+  signupRequestPayload: SignupRequestPayload;
 
   constructor(private authService: AuthService) { 
       this.signupRequestPayload = {
