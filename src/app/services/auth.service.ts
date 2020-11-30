@@ -34,4 +34,12 @@ export class AuthService {
                                return true;
                          }));
   }
+
+  public getJwtToken() {
+     return this.localStorageService.retrieve('authenticationToken');
+  } 
+
+  public getRefreshToken() {
+      return this.localStorageService.retrieve('refreshToken');
+  }
 }

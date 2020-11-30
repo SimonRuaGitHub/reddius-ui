@@ -4,6 +4,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
