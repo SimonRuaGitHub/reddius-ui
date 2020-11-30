@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignupRequestPayload } from '../../payloads/SignupRequestPayload';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +15,7 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   signupRequestPayload: SignupRequestPayload;
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { 
       this.signupRequestPayload = {
           username: '',
           email: '',
