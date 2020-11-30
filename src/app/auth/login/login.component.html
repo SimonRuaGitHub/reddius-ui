@@ -20,14 +20,14 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right ">Password</label>
                             <div class="col-md-6">
-                               <input type="text" id="password" class="form-control" formControlName="password" autofocus>
+                               <input type="password" id="password" class="form-control" formControlName="password" autofocus>
                                <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="help-block">
                                       Please enter a valid password
                                </span>
                             </div>
                         </div>
                         <span class="col-md-6 offset-md-4">
-                             <button type="submit" class="default-action">
+                             <button type="submit" class="default-action" [disabled]="!loginForm.get('password').valid || !loginForm.get('username').valid">
                                  Sign In
                              </button>
                              <span style="padding-left: 15px">New User? <a routerLink="/sign-up">Sign Up</a></span>
@@ -35,8 +35,8 @@
                     </form>
                 </div>
            </div>
-           <div class="alert alert-danger" id="danger-msg" style="margin-top: 15px">
-              A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+           <div class="login-msg failed-msg" *ngIf="this.isError">
+              Login Failed. Please check your credentials and try again.
            </div>
          </div>
          <div class="col-md-3"></div>
