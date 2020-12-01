@@ -2,18 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { SignupRequestPayload } from '../payloads/SignupRequestPayload';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map, tap } from 'rxjs/operators'
 import dns from "../config/reddius-api-endpoint/domain.json";
 import resourcePath from "../config/reddius-api-endpoint/resource-paths.json";
 import { LoginRequestPayload } from '../payloads/loginRequestPayload';
 import { LoginResponse } from '../payloads/login-response.payload';
 import { LocalStorageService } from 'ngx-webstorage'
+import { RefreshTokenPayload } from '../payloads/refresh-token.payload';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private refreshTokenPayload: RefreshTokenPayload = {
+    refreshToken: this.getRefreshToken(),
+    username: this.getUsername()
+  };
 
   constructor(private http: HttpClient, private localStorageService:LocalStorageService){}
 
@@ -41,5 +47,22 @@ export class AuthService {
 
   public getRefreshToken() {
       return this.localStorageService.retrieve('refreshToken');
+  }
+
+  public getUsername(){
+    return this.localStorageService.retrieve('username');
+  }
+
+  public refreshToken(): Observable<any>{
+     return this.http.post(dns.dnsDev+resourcePath.refreshTokenPath,this.refreshTokenPayload)
+                     .pipe(tap(response => {
+                       this.localStorageService.clear('authenticationToken');
+                       this.localStorageService.clear('expiresAt');
+                       this.localStorageService.clear('refreshToken');
+
+                       this.localStorageService.store('authenticationToken', response.authenticationToken);
+                       this.localStorageService.store('expiresAt', response.expiresAt);
+                       this.localStorageService.store('refreshToken', response.refreshToken);
+                     }));
   }
 }

@@ -1,4 +1,4 @@
-export interface refreshTokenPayload{
+export interface RefreshTokenPayload{
      refreshToken: string;
      username: string;
 }

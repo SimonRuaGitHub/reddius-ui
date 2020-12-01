@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { AuthService } from './services/auth.service';
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 import resourcePath from "./config/reddius-api-endpoint/resource-paths.json";
+import { LoginResponse } from './payloads/login-response.payload';
 
 @Injectable({
     providedIn: 'root'
@@ -32,7 +33,10 @@ export class TokenInterceptor implements HttpInterceptor{
 
                 if(jwtToken){
                    return next.handle(this.addToken(req, jwtToken)).pipe(catchError(selector => {
-                       if(selector instanceof HttpErrorResponse && selector.status === 403){
+                         
+                       console.log("selector status: "+selector.status)
+
+                       if(selector instanceof HttpErrorResponse && selector.status == 403){
                              return this.handleAuthError(req, next);
                        }else{
                              return throwError(selector);
@@ -46,12 +50,17 @@ export class TokenInterceptor implements HttpInterceptor{
 
     private handleAuthError(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-       if(!this.isTokenRefreshing){
-           this.isTokenRefreshing = true;
-           this.refreshTokenSubject.next(null);
-       }
+          console.log('Calling refresh token');
 
-       return null;
+          return this.authService.refreshToken().pipe(switchMap((refreshTokenResponse: LoginResponse) => {
+
+               console.log('Refresh Token response '+refreshTokenResponse);
+
+               this.refreshTokenSubject.next( refreshTokenResponse.authenticationToken );
+            
+               return next.handle(this.addToken(req, refreshTokenResponse.authenticationToken));
+           }));
+
     }
 
     private addToken(req: HttpRequest<any>, jwtToken: any) {
