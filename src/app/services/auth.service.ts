@@ -8,9 +8,7 @@ import resourcePath from "../config/reddius-api-endpoint/resource-paths.json";
 import { LoginRequestPayload } from '../payloads/loginRequestPayload';
 import { LoginResponse } from '../payloads/login-response.payload';
 import { RefreshTokenPayload } from '../payloads/refresh-token.payload';
-import { AuthStorageService } from './auth-storage.service';
-
-
+import { AuthStorageService } from './storage/auth-storage.service';
 
 @Injectable({
   providedIn: 'root'

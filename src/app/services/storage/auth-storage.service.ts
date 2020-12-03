@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
-import { LoginResponse } from '../payloads/login-response.payload';
+import { LoginResponse } from 'src/app/payloads/login-response.payload';
 
 @Injectable({
   providedIn: 'root'

@@ -6,7 +6,7 @@ import { AuthService } from './services/auth.service';
 import { catchError, switchMap } from 'rxjs/operators';
 import resourcePath from "./config/reddius-api-endpoint/resource-paths.json";
 import { LoginResponse } from './payloads/login-response.payload';
-import { AuthStorageService } from './services/auth-storage.service';
+import { AuthStorageService } from './services/storage/auth-storage.service';
 
 @Injectable({
     providedIn: 'root'
