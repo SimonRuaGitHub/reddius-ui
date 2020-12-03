@@ -6,17 +6,14 @@ import { AuthService } from './services/auth.service';
 import { catchError, switchMap } from 'rxjs/operators';
 import resourcePath from "./config/reddius-api-endpoint/resource-paths.json";
 import { LoginResponse } from './payloads/login-response.payload';
+import { AuthStorageService } from './services/auth-storage.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TokenInterceptor implements HttpInterceptor{
 
-    isTokenRefreshing = false;
-    refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject(null);
-
-    constructor(public authService: AuthService){
-
+    constructor(private authService: AuthService,private authStorageService: AuthStorageService){
     }
      
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -29,7 +26,7 @@ export class TokenInterceptor implements HttpInterceptor{
 
                 console.log('Adding Jwt Token to any request url different to any API authentication path '+req.url);
 
-                const jwtToken = this.authService.getJwtToken();
+                const jwtToken = this.authStorageService.getJwtToken();
 
                 if(jwtToken){
                    return next.handle(this.addToken(req, jwtToken)).pipe(catchError(selector => {
@@ -54,9 +51,7 @@ export class TokenInterceptor implements HttpInterceptor{
 
           return this.authService.refreshToken().pipe(switchMap((refreshTokenResponse: LoginResponse) => {
 
-               console.log('Refresh Token response '+refreshTokenResponse);
-
-               this.refreshTokenSubject.next( refreshTokenResponse.authenticationToken );
+               console.log('Refresh Token response '+refreshTokenResponse.authenticationToken.toString());
             
                return next.handle(this.addToken(req, refreshTokenResponse.authenticationToken));
            }));
