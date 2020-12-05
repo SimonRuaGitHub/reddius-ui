@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { PostService } from './services/post.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,4 @@ import { PostService } from './services/post.service';
 })
 export class AppComponent {
   title = 'reddius-ui';
-
-  constructor(private postService:PostService){
-      postService.getAllPosts().subscribe(nextdata => console.log(nextdata), error => console.log(error), () => console.log("call process completed"));
-  }
 }

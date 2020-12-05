@@ -1,0 +1,14 @@
+.post-card{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.user-name{
+ font-weight: bold;
+ font-size: small;
+}
+
+.author{
+    color: grey;
+    font-size: small;
+}

@@ -1,5 +1,6 @@
 {
     "signupPath": "/api/auth/signup",
     "loginPath":"/api/auth/login",
-    "refreshTokenPath":"/api/auth/refresh/token"
+    "refreshTokenPath":"/api/auth/refresh/token",
+    "Allposts":"/api/posts/all"
 }

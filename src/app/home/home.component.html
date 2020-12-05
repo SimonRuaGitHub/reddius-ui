@@ -1,0 +1,18 @@
+<div class="reddius-body">
+    <div class="container"> 
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="card post-card" *ngFor="let post of listPosts">
+                            <div class="card-body">
+                               <span class="user-name">r/{{ post.subreddiusName }} </span>
+                               <span class="author"> Posted by u/{{ post.userName }} {{ post.duration }} </span>
+                               <hr/>
+                               <h5>{{ post.postName }}</h5>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+        </div>
+   </div>   
+</div>
