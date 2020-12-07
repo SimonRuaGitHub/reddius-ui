@@ -11,13 +11,21 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from './token-interceptor';
 import { HomeComponent } from './home/home.component';
+import { PostTitleComponent } from './home/post-title/post-title.component';
+import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
+import { SideBarComponent } from './home/side-bar/side-bar.component';
+import { SubreddiusSideBarComponent } from './home/subreddius-side-bar/subreddius-side-bar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    PostTitleComponent,
+    VoteButtonComponent,
+    SideBarComponent,
+    SubreddiusSideBarComponent
   ],
   imports: [
     BrowserModule,
