@@ -15,6 +15,7 @@ import { PostTitleComponent } from './home/post-title/post-title.component';
 import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
 import { SideBarComponent } from './home/side-bar/side-bar.component';
 import { SubreddiusSideBarComponent } from './home/subreddius-side-bar/subreddius-side-bar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SubreddiusSideBarComponent } from './home/subreddius-side-bar/subreddiu
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
