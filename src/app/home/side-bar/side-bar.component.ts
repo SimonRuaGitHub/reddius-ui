@@ -12,4 +12,12 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createPost(){
+
+  }
+
+  createSubreddius(){
+    
+  }
+
 }
