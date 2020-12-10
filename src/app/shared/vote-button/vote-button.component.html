@@ -1,9 +1,11 @@
-<button class="btn">
-     <fa-icon [icon]="faArrowUp"></fa-icon>
-</button>
-<div style="text-align: center;">
-    {{ post.voteCount }}
+<div style="margin-top: 17px">
+    <button class="btn">
+        <fa-icon class="upvote" [icon]="faArrowUp" (click)="vote(UPVOTE)"></fa-icon>
+   </button>
+   <div style="text-align: center;">
+       {{ post.voteCount }}
+   </div>
+   <button class="btn">
+       <fa-icon class="downvote" [icon]="faArrowDown" (click)="vote(DOWNVOTE)"></fa-icon>
+   </button>
 </div>
-<button class="btn">
-    <fa-icon [icon]="faArrowDown"></fa-icon>
-</button>

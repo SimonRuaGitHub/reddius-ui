@@ -9,9 +9,10 @@ import { PostModel } from 'src/app/shared/post-model';
 })
 export class PostTitleComponent implements OnInit {
 
-  listPosts:Array<PostModel>;
+  listPosts:Array<PostModel> = [];
 
-  constructor(private postService:PostService) { }
+  constructor(private postService:PostService) { 
+  }
 
   ngOnInit(): void {
       this.postService.getAllPosts().subscribe(posts => {

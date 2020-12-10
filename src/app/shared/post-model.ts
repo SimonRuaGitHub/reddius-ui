@@ -1,5 +1,6 @@
 export class PostModel {
-	id:number;
+    postId:number;
+    userId:number;
 	postName:string;
 	url:string;
     description:string;

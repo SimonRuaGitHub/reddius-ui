@@ -16,4 +16,8 @@ export class PostService {
        return this.http.get<Array<PostModel>>(EnvironmentDns.dnsDev.concat(ResourcePath.Allposts));
   }
 
+  public getPost(id:number): Observable<PostModel>{
+       return this.http.get<PostModel>(EnvironmentDns.dnsDev.concat(ResourcePath.post.replace( "{id}", id.toString() ) ) );
+  }
+
 }
