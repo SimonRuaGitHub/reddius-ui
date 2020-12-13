@@ -1,0 +1,14 @@
+.sidebar-card{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.announcement{
+    font-size: small;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.inner-space{
+    margin: 5px;
+}

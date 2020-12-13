@@ -4,6 +4,7 @@
     "refreshTokenPath":"/api/auth/refresh/token",
     "Allposts":"/api/posts/all",
     "vote":"/api/votes/",
-    "post":"/api/posts/{id}"
+    "post":"/api/posts/{id}",
+    "Allsubreddiuses":"/api/subreddius"
 
 }

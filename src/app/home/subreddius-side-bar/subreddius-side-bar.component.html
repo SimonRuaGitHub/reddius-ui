@@ -1,1 +1,7 @@
-<p>subreddius-side-bar works!</p>
+<div class="card sidebar-card">
+    <p class="announcement inner-space">Browse Subreddiuses</p>
+    <div *ngFor="let subreddius of subreddiuses">
+        <a class="announcement inner-space" style="font-weight: bold;">r/{{ subreddius.subreddiusName }}</a>
+        <hr/>
+    </div>
+</div>
