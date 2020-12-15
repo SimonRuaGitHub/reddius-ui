@@ -12,3 +12,9 @@
 .inner-space{
     margin: 5px;
 }
+
+.large-button{
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+}

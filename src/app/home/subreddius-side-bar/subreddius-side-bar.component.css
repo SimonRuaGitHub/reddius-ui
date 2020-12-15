@@ -1,0 +1,16 @@
+.inner-space-subreddius{
+    margin: 15px;
+}
+
+.cell-form{
+    border-bottom: 1px solid #f2f2f2;
+}
+
+a[name="subreddiuses-link"]{
+        color: inherit;     
+}
+
+a[name="subreddiuses-link"]:hover{
+    text-decoration: none;
+    cursor: pointer;
+}

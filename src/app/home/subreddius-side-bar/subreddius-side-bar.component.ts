@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { find, take } from 'rxjs/operators';
 import { SubreddiusService } from 'src/app/services/subreddius.service';
 import { SubreddiusModel } from 'src/app/shared/subreddius-model';
 
@@ -10,11 +11,23 @@ import { SubreddiusModel } from 'src/app/shared/subreddius-model';
 export class SubreddiusSideBarComponent implements OnInit {
 
   subreddiuses: Array<SubreddiusModel>;
+  private readonly maxReddiusesToShow:number = 5;
+  isViewMoreVisible:boolean=false;
 
   constructor(private subreddiusService:SubreddiusService) { }
 
   ngOnInit(): void {
-    this.subreddiusService.getAllSubreddius().subscribe(arraySubreddiuses => this.subreddiuses = arraySubreddiuses);
+    this.subreddiusService.getAllSubreddius().subscribe(arraySubreddiuses => {
+
+      if(arraySubreddiuses.length <= this.maxReddiusesToShow){
+         this.isViewMoreVisible = false;
+         this.subreddiuses = arraySubreddiuses;
+      }else{
+        this.isViewMoreVisible = true;
+        this.subreddiuses = arraySubreddiuses.slice(0,this.maxReddiusesToShow);
+      }
+    
+    });
   }
 
 }

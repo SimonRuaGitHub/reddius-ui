@@ -1,7 +1,13 @@
 <div class="card sidebar-card">
-    <p class="announcement inner-space">Browse Subreddiuses</p>
+    <div class="cell-form">
+        <h6 class="inner-space-subreddius">Browse Subreddiuses</h6>
+    </div> 
     <div *ngFor="let subreddius of subreddiuses">
-        <a class="announcement inner-space" style="font-weight: bold;">r/{{ subreddius.subreddiusName }}</a>
-        <hr/>
+        <div class="cell-form">
+           <a name="subreddiuses-link" class="inner-space-subreddius announcement" style="font-weight: bold;">r/{{ subreddius.subreddiusName }}</a>
+        </div> 
+    </div>
+    <div *ngIf="isViewMoreVisible"  style="text-align: center;" class="inner-space">
+         <button class="btn btn-primary large-button">VIEW MORE</button>
     </div>
 </div>
