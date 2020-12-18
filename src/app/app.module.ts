@@ -15,7 +15,9 @@ import { PostTitleComponent } from './home/post-title/post-title.component';
 import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
 import { SideBarComponent } from './home/side-bar/side-bar.component';
 import { SubreddiusSideBarComponent } from './home/subreddius-side-bar/subreddius-side-bar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CreateSubreddiusComponent } from './subreddius/create-subreddius/create-subreddius.component'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,9 +28,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     PostTitleComponent,
     VoteButtonComponent,
     SideBarComponent,
-    SubreddiusSideBarComponent
+    SubreddiusSideBarComponent,
+    CreateSubreddiusComponent
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,

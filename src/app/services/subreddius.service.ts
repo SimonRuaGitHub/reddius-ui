@@ -14,4 +14,8 @@ export class SubreddiusService {
   public getAllSubreddius():Observable<Array<SubreddiusModel>>{
          return this.http.get<Array<SubreddiusModel>>(URL_API_ENDPOINTS.allSubreddiuses);
   }
+
+  public createSubreddius(subreddiusModel:SubreddiusModel){
+         return this.http.post<SubreddiusModel>(URL_API_ENDPOINTS.createSubreddius, subreddiusModel);
+  }
 }

@@ -1,0 +1,48 @@
+<div class="reddius-body">
+    <div class="container"> 
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card" style="margin-top: 15px;">
+                         <div class="card-body">
+                            <div class="mb-3">
+                               <h5 class="card-title">Create a Community</h5>
+                            </div>
+                            <form [formGroup]="subreddiusForm">
+                                <div class="mb-3">
+                                  <label for="name" class="form-label">Name</label>
+                                  <input type="text" formControlName="name" class="form-control" id="name">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="description" class="form-label">Description</label>
+                                  <textarea type="textarea" formControlName="description" class="form-control" id="description" style="height: 100%;"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <button  type="button" class="btn btn-primary large-button-subreddius" (click)="createSubreddius()">CREATE</button>
+                                    <button type="button" style="margin-right: 10px;" class="btn btn-outline-primary large-button-subreddius">DISCARD</button>
+                                </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="card" style="margin-top: 15px;">
+                      <div class="card-body">
+                          <div class="mb-3">
+                              <h5 class="card-title">Community Rules</h5>
+                          </div>
+                              <div class="mb-3">
+                                 <p>1. Don't be Dick</p>
+                                 <hr/>
+                                 <p>2. No Captain Marvel</p>
+                                 <hr/>
+                                 <p>3. No politics</p>
+                                 <hr/> 
+                                 <p>4. No pictures Allowed</p>
+                                 <hr/>
+                              </div>
+                      </div>
+                </div>
+                </div>
+        </div>
+   </div>   
+</div>

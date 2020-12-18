@@ -5,6 +5,5 @@
     "Allposts":"/api/posts/all",
     "vote":"/api/votes/",
     "post":"/api/posts/{id}",
-    "Allsubreddiuses":"/api/subreddius"
-
+    "subreddius":"/api/subreddius"
 }

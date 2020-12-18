@@ -1,7 +1,8 @@
 export interface SubreddiusModel{
-    id: number;
+    id?: number;
     subreddiusName:string;
     description: string;
-    userid: string;
+    userid?: string;
+    username: string;
     numberOfPosts?: number;
 }

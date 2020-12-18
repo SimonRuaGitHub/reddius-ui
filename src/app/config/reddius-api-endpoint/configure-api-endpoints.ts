@@ -4,7 +4,8 @@ import Environment from './domain.json';
 import Resources from './resource-paths.json';
 
 export const URL_API_ENDPOINTS = {
-       allSubreddiuses: Environment.dnsDev.concat(Resources.Allsubreddiuses)
+       allSubreddiuses: Environment.dnsDev.concat(Resources.subreddius),
+       createSubreddius: Environment.dnsDev.concat(Resources.subreddius)
 }
 
 
