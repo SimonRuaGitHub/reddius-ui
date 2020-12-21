@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { find, take } from 'rxjs/operators';
 import { SubreddiusService } from 'src/app/services/subreddius.service';
 import { SubreddiusModel } from 'src/app/shared/subreddius-model';
@@ -14,7 +15,7 @@ export class SubreddiusSideBarComponent implements OnInit {
   private readonly maxReddiusesToShow:number = 5;
   isViewMoreVisible:boolean=false;
 
-  constructor(private subreddiusService:SubreddiusService) { }
+  constructor(private subreddiusService:SubreddiusService, private router:Router) { }
 
   ngOnInit(): void {
     this.subreddiusService.getAllSubreddius().subscribe(arraySubreddiuses => {
@@ -28,6 +29,10 @@ export class SubreddiusSideBarComponent implements OnInit {
       }
     
     });
+  }
+
+  goToSubreddiusesList(){
+       this.router.navigateByUrl('/all-subreddiuses');
   }
 
 }

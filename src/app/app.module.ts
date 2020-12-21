@@ -18,6 +18,7 @@ import { SubreddiusSideBarComponent } from './home/subreddius-side-bar/subreddiu
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreateSubreddiusComponent } from './subreddius/create-subreddius/create-subreddius.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListSubreddiusesComponent } from './subreddius/list-subreddiuses/list-subreddiuses.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     VoteButtonComponent,
     SideBarComponent,
     SubreddiusSideBarComponent,
-    CreateSubreddiusComponent
+    CreateSubreddiusComponent,
+    ListSubreddiusesComponent
   ],
   imports: [
     ReactiveFormsModule,

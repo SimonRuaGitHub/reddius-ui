@@ -4,9 +4,11 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { CreateSubreddiusComponent } from './subreddius/create-subreddius/create-subreddius.component';
+import { ListSubreddiusesComponent } from './subreddius/list-subreddiuses/list-subreddiuses.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent },
+  {path:'all-subreddiuses', component: ListSubreddiusesComponent},
   {path:'create-subreddius', component: CreateSubreddiusComponent},
   {path:"sign-up", component: SignupComponent},
   {path:"login", component: LoginComponent}
