@@ -1,5 +1,6 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PostRequest } from 'src/app/payloads/post-request-payload';
 import { PostService } from 'src/app/services/post.service';
@@ -20,7 +21,11 @@ export class CreatePostComponent implements OnInit {
   postForm:FormGroup;
   private createPostPayload:PostRequest;
 
-  constructor(private subreddiusService:SubreddiusService, private authStorageService:AuthStorageService, private postService:PostService, private toastService: ToastrService) { 
+  constructor(private subreddiusService:SubreddiusService, 
+              private authStorageService:AuthStorageService, 
+              private postService:PostService, 
+              private toastService: ToastrService,
+              private router:Router) { 
      this.initEditor = tinyInit;
   }
 
@@ -46,7 +51,7 @@ export class CreatePostComponent implements OnInit {
           this.postForm = new FormGroup({
                title: new FormControl('', Validators.required),
                url: new FormControl(''),
-               community: new FormControl('Select a Community',[Validators.required]),
+               community: new FormControl('Select a Community',[Validators.required, Validators.pattern("(?!Select a Community)([a-z0-9]+)")]),
                description: new FormControl('',Validators.required)
           });
 
@@ -63,10 +68,16 @@ export class CreatePostComponent implements OnInit {
         userId: this.authStorageService.getUserId()
       }
 
-      this.postService.savePost(this.createPostPayload)
-                      .subscribe(isCreated => this.toastService.success("Post was created successfully"), 
+      console.log(this.createPostPayload);
+
+     this.postService.savePost(this.createPostPayload)
+                     .subscribe(isCreated => this.toastService.success("Post was created successfully"), 
                                  error => this.toastService.error("There was a problem trying to create your Post :C"),
                                  () => console.log("Request call completed"));
+  }
+
+  goToHome(){
+          this.router.navigateByUrl('');
   }
 
 }

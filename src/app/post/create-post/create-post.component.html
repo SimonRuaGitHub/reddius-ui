@@ -25,8 +25,8 @@
                                     </editor>
                                   </div>
                                   <div class="mb-3">
-                                      <button type="button" name="postAction" class="btn btn-primary large-button-post" (click)="createPost()">CREATE</button>
-                                      <button type="button" name="postAction" style="margin-left: 10px;" class="btn btn-outline-primary large-button-post">DISCARD</button>
+                                      <button type="button" name="postAction" class="btn btn-primary large-button-post" (click)="createPost()" [disabled]="postForm.invalid">CREATE</button>
+                                      <button type="button" name="postAction" style="margin-left: 10px;" class="btn btn-outline-primary large-button-post" (click)="goToHome()">DISCARD</button>
                                   </div>
                               </form>
                         </div>
