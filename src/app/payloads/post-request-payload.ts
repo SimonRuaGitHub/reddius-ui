@@ -1,6 +1,6 @@
 export interface PostRequest{
     description:string;
-    postId:number;
+    postId?:number;
     postName:string;
     subreddiusid:number;
     url:string;

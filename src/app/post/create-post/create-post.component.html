@@ -1,0 +1,55 @@
+<div class="reddius-body">
+    <div class="container"> 
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card" style="margin-top: 15px;">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h5 class="card-title">Create Your Post Here</h5>
+                            </div>
+                              <form [formGroup]="postForm">
+                                  <div class="mb-3">
+                                    <input type="text" formControlName="title"  class="form-control" id="title" placeholder="Title">
+                                  </div>
+                                  <div class="mb-3">
+                                    <input type="text" formControlName="url" class="form-control" id="url" placeholder="Url">
+                                  </div>
+                                  <div class="mb-3">
+                                    <select class="form-control" formControlName="community" id="community">
+                                        <option class="form-control" selected disabled>Select a Community</option>
+                                        <option *ngFor="let subreddius of subreddiuses" [ngValue]="subreddius.id">{{subreddius.subreddiusName}}</option>
+                                    </select>
+                                  </div>
+                                  <div class="mb-3">
+                                    <editor [init]="initEditor" formControlName="description" id="description">
+                                    </editor>
+                                  </div>
+                                  <div class="mb-3">
+                                      <button type="button" name="postAction" class="btn btn-primary large-button-post" (click)="createPost()">CREATE</button>
+                                      <button type="button" name="postAction" style="margin-left: 10px;" class="btn btn-outline-primary large-button-post">DISCARD</button>
+                                  </div>
+                              </form>
+                        </div>
+                     </div>                    
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="margin-top: 15px;">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h5 class="card-title">General Community Rules</h5>
+                            </div>
+                                <div class="mb-3">
+                                   <p>1. Don't be Dick</p>
+                                   <hr/>
+                                   <p>2. No Captain Marvel</p>
+                                   <hr/>
+                                   <p>3. No politics</p>
+                                   <hr/> 
+                                   <p>4. No pictures Allowed</p>
+                                   <hr/>
+                                </div>
+                        </div>
+                     </div>
+                </div>
+        </div>
+</div>   

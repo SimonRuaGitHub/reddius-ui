@@ -2,3 +2,11 @@
 input.ng-invalid.ng-touched{
     border: 1px solid red;    
 }
+
+body{
+    background-color: #cfd8dc;
+}
+
+.card{
+    border: 1px solid #babdbe;
+}

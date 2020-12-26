@@ -17,8 +17,11 @@ import { SideBarComponent } from './home/side-bar/side-bar.component';
 import { SubreddiusSideBarComponent } from './home/subreddius-side-bar/subreddius-side-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreateSubreddiusComponent } from './subreddius/create-subreddius/create-subreddius.component'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListSubreddiusesComponent } from './subreddius/list-subreddiuses/list-subreddiuses.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { ViewPostComponent } from './post/view-post/view-post.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 
 @NgModule({
@@ -31,10 +34,13 @@ import { ListSubreddiusesComponent } from './subreddius/list-subreddiuses/list-s
     SideBarComponent,
     SubreddiusSideBarComponent,
     CreateSubreddiusComponent,
-    ListSubreddiusesComponent
+    ListSubreddiusesComponent,
+    CreatePostComponent,
+    ViewPostComponent
   ],
   imports: [
     ReactiveFormsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     AuthModule,
@@ -42,7 +48,8 @@ import { ListSubreddiusesComponent } from './subreddius/list-subreddiuses/list-s
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    EditorModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

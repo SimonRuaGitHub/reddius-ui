@@ -3,4 +3,5 @@ export interface LoginResponse{
     username: string;
     refreshToken: string;
     expiresAt: number;
+    userid: number;
 }

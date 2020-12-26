@@ -20,6 +20,7 @@ export class AuthStorageService {
     AuthStorageService.localStorageService.store('username',loginResponse.username);
     AuthStorageService.localStorageService.store('refreshToken',loginResponse.refreshToken);
     AuthStorageService.localStorageService.store('expiresAt',loginResponse.expiresAt);
+    AuthStorageService.localStorageService.store('userid',loginResponse.userid);
   }
 
   public clearAuthToken(){
@@ -44,6 +45,10 @@ export class AuthStorageService {
   }
 
  public getUsername(){
-   return AuthStorageService.localStorageService.retrieve('username');
+     return AuthStorageService.localStorageService.retrieve('username');
+ }
+
+ public getUserId(){
+     return AuthStorageService.localStorageService.retrieve('userid');
  }
 }
