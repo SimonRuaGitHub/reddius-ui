@@ -9,7 +9,7 @@
                 <span class="secundary-info"> Posted by u/{{ post.userName }} {{ post.duration }} </span>
                 <hr/>
                 <h5>{{ post.postName }}</h5>
-                <p class="secundary-info" *ngIf="post.description != undefined and post.description != null">{{ post.description }}</p>
+                <p class="secundary-info" *ngIf="post.description != undefined and post.description != null" [innerHtml]="post.description"></p>
                 <hr/>
                 <span class="secundary-info">Comments({{ post.commentCount }})</span>
                 <button class="default-action space-info-action">READ POST</button>
