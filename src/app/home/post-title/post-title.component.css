@@ -3,6 +3,11 @@
     margin-bottom: 15px;
 }
 
+div.post-card:hover{
+    cursor: pointer;
+    border-color: gray;
+}
+
 .user-name{
  font-weight: bold;
  font-size: small;

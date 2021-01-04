@@ -1,1 +1,22 @@
-<p>view-post works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card post-card">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <app-vote-button [post]="post$"></app-vote-button>
+                    </div>
+                    <div class="col-sm-11">
+                        <div class="card-body">
+                            <span class="user-name">r/{{ post$.subreddiusName }} </span>
+                            <span class="secundary-info"> Posted by u/{{ post$.userName }} {{ post$.duration }} </span>
+                            <hr/>
+                            <h5>{{ post$.postName }}</h5>
+                            <p class="secundary-info" *ngIf="post$.description != undefined and post$.description != null" [innerHtml]="post$.description"></p>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div> 
+</div>

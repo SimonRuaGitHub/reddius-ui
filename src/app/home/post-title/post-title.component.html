@@ -1,5 +1,5 @@
 <div class="card post-card" *ngFor="let post of listPosts">
-    <div class="row">
+    <div class="row" (click)="goToPost(post.postId)">
         <div class="col-sm-1">
             <app-vote-button [post]="post"></app-vote-button>
         </div>
@@ -12,7 +12,6 @@
                 <p class="secundary-info" *ngIf="post.description != undefined and post.description != null" [innerHtml]="post.description"></p>
                 <hr/>
                 <span class="secundary-info">Comments({{ post.commentCount }})</span>
-                <button class="default-action space-info-action">READ POST</button>
             </div>
         </div>
     </div>   

@@ -1,0 +1,18 @@
+.post-card{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.user-name{
+ font-weight: bold;
+ font-size: small;
+}
+
+.secundary-info{
+    color: grey;
+    font-size: small;
+}
+
+.space-info-action{
+    margin-left: 10px;
+}
