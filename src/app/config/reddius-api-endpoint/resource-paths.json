@@ -6,5 +6,6 @@
     "vote":"/api/votes/",
     "post":"/api/posts/{id}",
     "subreddius":"/api/subreddius",
-    "createPost":"/api/posts"
+    "createPost":"/api/posts",
+    "createComment":"/api/comments"
 }

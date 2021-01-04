@@ -16,17 +16,17 @@ import { tinyInit } from '../../config/editor/tiny-editor';
 })
 export class CreatePostComponent implements OnInit {
 
-  initEditor;
   subreddiuses:Array<SubreddiusModel>;
   postForm:FormGroup;
   private createPostPayload:PostRequest;
+  readonly initEditor = tinyInit;
 
   constructor(private subreddiusService:SubreddiusService, 
               private authStorageService:AuthStorageService, 
               private postService:PostService, 
               private toastService: ToastrService,
               private router:Router) { 
-     this.initEditor = tinyInit;
+
   }
 
   ngOnInit(){

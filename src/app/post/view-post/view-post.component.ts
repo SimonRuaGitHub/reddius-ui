@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { throwError } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
 import { PostModel } from 'src/app/shared/post-model';
+import { faCommentAlt } from '@fortawesome/free-solid-svg-icons'
+import { AuthStorageService } from 'src/app/services/storage/auth-storage.service';
 
 @Component({
   selector: 'app-view-post',
@@ -13,6 +15,8 @@ export class ViewPostComponent implements OnInit {
 
   postId: number;
   post$: PostModel;
+  username: string;
+  readonly faCommentAlt = faCommentAlt;
 
   constructor(private postService:PostService, private activateRoute:ActivatedRoute) { 
      this.postId = this.activateRoute.snapshot.params.id;

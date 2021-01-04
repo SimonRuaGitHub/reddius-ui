@@ -13,6 +13,12 @@
     font-size: small;
 }
 
+.additional-info-options{
+    color: gray;
+    font-size: small;
+    font-weight: bold;
+}
+
 .space-info-action{
     margin-left: 10px;
 }

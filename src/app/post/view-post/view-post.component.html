@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="card post-card">
                 <div class="row">
                     <div class="col-sm-1">
@@ -13,10 +13,18 @@
                             <hr/>
                             <h5>{{ post$.postName }}</h5>
                             <p class="secundary-info" *ngIf="post$.description != undefined and post$.description != null" [innerHtml]="post$.description"></p>
+                            <div>
+                                <fa-icon style="color: gray" [icon]="faCommentAlt"></fa-icon>
+                                <span class="additional-info-options"> {{ post$.commentCount }} Comments</span>
+                            </div>
+                            <app-comment-post [post]="post$"></app-comment-post>
                         </div>
                     </div>
                 </div>   
             </div>
+        </div>
+        <div class="col-md-4">
+          <app-community-rules></app-community-rules>
         </div>
     </div> 
 </div>

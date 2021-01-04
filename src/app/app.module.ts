@@ -23,6 +23,7 @@ import { CreatePostComponent } from './post/create-post/create-post.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { CommunityRulesComponent } from './shared/community-rules/community-rules.component';
+import { CommentPostComponent } from './post/comment-post/comment-post.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CommunityRulesComponent } from './shared/community-rules/community-rule
     ListSubreddiusesComponent,
     CreatePostComponent,
     ViewPostComponent,
-    CommunityRulesComponent
+    CommunityRulesComponent,
+    CommentPostComponent
   ],
   imports: [
     ReactiveFormsModule,

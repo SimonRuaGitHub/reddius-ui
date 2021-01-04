@@ -1,0 +1,10 @@
+<form [formGroup]="commentForm">
+    <div class="mb-3">
+        <span class="secundary-info">Comment as {{ username }}</span>
+        <editor [init]="initEditor" formControlName="text" id="text"></editor>
+    </div>  
+    <div class="mb-3">
+        <button type="button" name="postAction" class="btn btn-primary comment" (click)="createComment()" [disabled]="commentForm.invalid">COMMENT</button>
+    </div>
+</form>
+

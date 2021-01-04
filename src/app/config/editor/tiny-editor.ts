@@ -1,5 +1,5 @@
 export const tinyInit = {
-    height: 1000,
+    height: 200,
     menubar: false,
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',
