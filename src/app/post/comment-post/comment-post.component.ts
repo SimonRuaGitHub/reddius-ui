@@ -37,15 +37,14 @@ export class CommentPostComponent implements OnInit {
   }
 
   createComment(){
-   
-       console.log(this.post)
 
        this.createCommentPayload = {
         text: this.commentForm.get('text').value,
-        postId: this.post.postId,
-        userId: this.post.userId
-      }
+        postid: this.post.postId,
+        userid: this.post.userId
+      };
 
+       console.log(this.createCommentPayload);
 
        this.commentService.createComment(this.createCommentPayload).subscribe(isValid => {
               console.log("comment created");

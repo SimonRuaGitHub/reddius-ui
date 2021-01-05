@@ -1,5 +1,5 @@
 export interface CommentRequest{
   text: string;
-  postId: number;
-  userId: number;
+  postid: number;
+  userid: number;
 }

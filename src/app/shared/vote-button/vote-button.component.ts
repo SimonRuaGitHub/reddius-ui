@@ -25,16 +25,16 @@ export class VoteButtonComponent implements OnInit {
   constructor(private voteService:VoteService, private postService:PostService, private toastService:ToastrService) { }
 
   ngOnInit(): void {
-     this.voteModel = {
-          userid:this.post.userId,
-          postid:this.post.postId,
-          voteType: undefined
-     }
+     
   }
 
   vote(voteType: VoteType):void{
     
-    this.voteModel.voteType = voteType;
+    this.voteModel = {
+      userid:this.post.userId,
+      postid:this.post.postId,
+      voteType: voteType
+    };
 
      this.voteService.votePost(this.voteModel).subscribe(() => {
         this.refreshPost();
