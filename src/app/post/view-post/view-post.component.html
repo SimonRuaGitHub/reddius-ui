@@ -18,6 +18,7 @@
                                 <span class="additional-info-options"> {{ post$.commentCount }} Comments</span>
                             </div>
                             <app-comment-post [post]="post$"></app-comment-post>
+                            <app-comments-list [postid]="post$.postId"></app-comments-list>
                         </div>
                     </div>
                 </div>   

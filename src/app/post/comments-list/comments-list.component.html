@@ -1,0 +1,6 @@
+<div *ngFor="let comment of commentsList">
+
+   <span class="secundary-info">{{ comment.duration }}</span>
+   <br>
+   <p style="font-size: small" [innerHtml]="comment.text"></p>
+</div>

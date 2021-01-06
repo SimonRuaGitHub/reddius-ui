@@ -24,6 +24,7 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { CommunityRulesComponent } from './shared/community-rules/community-rules.component';
 import { CommentPostComponent } from './post/comment-post/comment-post.component';
+import { CommentsListComponent } from './post/comments-list/comments-list.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { CommentPostComponent } from './post/comment-post/comment-post.component
     CreatePostComponent,
     ViewPostComponent,
     CommunityRulesComponent,
-    CommentPostComponent
+    CommentPostComponent,
+    CommentsListComponent
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,6 +1,7 @@
 export const tinyInit = {
     height: 200,
     menubar: false,
+    content_style: "body {font-size: small}" ,
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',
       'searchreplace visualblocks code fullscreen',

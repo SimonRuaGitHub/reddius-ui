@@ -7,5 +7,6 @@
     "post":"/api/posts/{id}",
     "subreddius":"/api/subreddius",
     "createPost":"/api/posts",
-    "createComment":"/api/comments"
+    "createComment":"/api/comments",
+    "allCommentsByPost":"/api/comments/by-postId/{id}"
 }

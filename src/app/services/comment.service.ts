@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { URL_API_ENDPOINTS } from '../config/reddius-api-endpoint/configure-api-endpoints';
 import { CommentRequest } from '../payloads/comment-request.payload';
+import { CommentByPost } from '../payloads/comments-by-post.response';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,12 @@ export class CommentService {
                         throwError(response);
                     }
 
-         }))
+         }));
+  }
+
+  public getAllCommentsByPost(postid:number): Observable<Array<CommentByPost>>{
+
+         console.log(URL_API_ENDPOINTS.allCommentsByPost.replace("{id}", postid.toString()));
+         return this.http.get<Array<CommentByPost>>( URL_API_ENDPOINTS.allCommentsByPost.replace("{id}", postid.toString()) );
   }
 }
