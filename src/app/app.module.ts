@@ -25,6 +25,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { CommunityRulesComponent } from './shared/community-rules/community-rules.component';
 import { CommentPostComponent } from './post/comment-post/comment-post.component';
 import { CommentsListComponent } from './post/comments-list/comments-list.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { CommentsListComponent } from './post/comments-list/comments-list.compon
     ViewPostComponent,
     CommunityRulesComponent,
     CommentPostComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    UserProfileComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -55,7 +58,8 @@ import { CommentsListComponent } from './post/comments-list/comments-list.compon
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FontAwesomeModule,
-    EditorModule
+    EditorModule,
+    NgbModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

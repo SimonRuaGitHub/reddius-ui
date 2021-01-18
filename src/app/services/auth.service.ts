@@ -49,6 +49,10 @@ export class AuthService {
     return this.authStorageService.getUsername();
   }
 
+  public isLoggedIn():boolean{
+         return this.authStorageService.getJwtToken() != null;
+  }
+
   public refreshToken(): Observable<any>{
      return this.http.post(dns.dnsDev+resourcePath.refreshTokenPath,this.refreshTokenPayload)
                      .pipe(tap(response => {
@@ -56,5 +60,9 @@ export class AuthService {
 
                        this.authStorageService.storeAuthToken(response.authenticationToken, response.expiresAt, response.refreshToken);
                      }));
+  }
+
+  public logout(){
+      this.authStorageService.clearAllAuthInfo();
   }
 }

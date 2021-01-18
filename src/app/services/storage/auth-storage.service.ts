@@ -35,6 +35,14 @@ export class AuthStorageService {
     AuthStorageService.localStorageService.store('refreshToken', refreshToken);
   }
 
+  public clearAllAuthInfo():void{
+          AuthStorageService.localStorageService.clear('authenticationToken');
+          AuthStorageService.localStorageService.clear('username');
+          AuthStorageService.localStorageService.clear('refreshToken');
+          AuthStorageService.localStorageService.clear('expiresAt');
+          AuthStorageService.localStorageService.clear('userid');
+  }
+
   public getJwtToken() {
     console.log('jwt: '+AuthStorageService.localStorageService.retrieve('authenticationToken').toString());
     return AuthStorageService.localStorageService.retrieve('authenticationToken');
