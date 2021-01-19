@@ -6,7 +6,8 @@ export const URL_API_ENDPOINTS = {
        createSubreddius: Environment.dnsDev.concat(Resources.subreddius),
        createPost: Environment.dnsDev.concat(Resources.createPost),
        createComment: Environment.dnsDev.concat(Resources.createComment),
-       allCommentsByPost: Environment.dnsDev.concat(Resources.allCommentsByPost)
+       allCommentsByPost: Environment.dnsDev.concat(Resources.allCommentsByPost),
+       logout: Environment.dnsDev.concat(Resources.logout)
 }
 
 

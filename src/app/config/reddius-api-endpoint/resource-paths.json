@@ -8,5 +8,6 @@
     "subreddius":"/api/subreddius",
     "createPost":"/api/posts",
     "createComment":"/api/comments",
-    "allCommentsByPost":"/api/comments/by-postId/{id}"
+    "allCommentsByPost":"/api/comments/by-postId/{id}",
+    "logout":"/api/auth/logout"
 }

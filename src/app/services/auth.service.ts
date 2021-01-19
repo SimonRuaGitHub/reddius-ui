@@ -9,6 +9,7 @@ import { LoginRequestPayload } from '../payloads/loginRequestPayload';
 import { LoginResponse } from '../payloads/login-response.payload';
 import { RefreshTokenPayload } from '../payloads/refresh-token.payload';
 import { AuthStorageService } from './storage/auth-storage.service';
+import { URL_API_ENDPOINTS } from '../config/reddius-api-endpoint/configure-api-endpoints';
 
 @Injectable({
   providedIn: 'root'
@@ -66,9 +67,13 @@ export class AuthService {
        return this.authStorageService.getJwtToken() != null;
   }
 
-  public logout(){
-      this.authStorageService.clearAllAuthInfo();
-      this.loggedInSource.next(false);
-      this.usernameSource.next('');
+  public logout(): Observable<any>{
+     return this.http.post(URL_API_ENDPOINTS.logout, this.authStorageService.getRefreshToken(), { headers: { 'content-type':'text/plain' }, responseType:'text' })
+               .pipe(tap(reTokenDeletedMsg =>{
+                          this.authStorageService.clearAllAuthInfo();
+                          this.loggedInSource.next(false);
+                          this.usernameSource.next('');
+               }));
+      
   }
 }
