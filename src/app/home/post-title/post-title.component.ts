@@ -12,7 +12,8 @@ export class PostTitleComponent implements OnInit {
 
   listPosts:Array<PostModel> = [];
 
-  constructor(private postService:PostService, private router:Router) { 
+  constructor(private postService:PostService, private router:Router) {
+    console.log('Loading post titles');
   }
 
   ngOnInit(): void {

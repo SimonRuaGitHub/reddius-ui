@@ -33,9 +33,12 @@ export class HeaderComponent implements OnInit {
   logout(){
           console.log("logout from Reddius")
           this.authService.logout().subscribe(refTokenDeletedMsg => {
-               if(refTokenDeletedMsg != null && refTokenDeletedMsg != ''){
-                  this.router.navigateByUrl('');
-               }
+              console.log(refTokenDeletedMsg)
+              if(refTokenDeletedMsg){
+                this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+                this.router.onSameUrlNavigation = 'reload';
+                this.router.navigateByUrl('');
+              }              
           });
   }
 
