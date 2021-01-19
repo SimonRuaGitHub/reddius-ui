@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { SignupRequestPayload } from '../payloads/SignupRequestPayload';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators'
 import dns from "../config/reddius-api-endpoint/domain.json";
 import resourcePath from "../config/reddius-api-endpoint/resource-paths.json";
@@ -14,6 +14,9 @@ import { AuthStorageService } from './storage/auth-storage.service';
   providedIn: 'root'
 })
 export class AuthService {
+
+  public loggedInSource = new BehaviorSubject<boolean>(false);
+  public usernameSource = new BehaviorSubject<string>('');
 
   private refreshTokenPayload: RefreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
@@ -32,7 +35,8 @@ export class AuthService {
                          .pipe(map(loginResponse => {
                            
                                this.authStorageService.storeAuthInfo(loginResponse);
-        
+                               this.loggedInSource.next(true);     
+                               this.usernameSource.next(loginResponse.username)   
                                return true;
                          }));
   }
@@ -49,10 +53,6 @@ export class AuthService {
     return this.authStorageService.getUsername();
   }
 
-  public isLoggedIn():boolean{
-         return this.authStorageService.getJwtToken() != null;
-  }
-
   public refreshToken(): Observable<any>{
      return this.http.post(dns.dnsDev+resourcePath.refreshTokenPath,this.refreshTokenPayload)
                      .pipe(tap(response => {
@@ -62,7 +62,13 @@ export class AuthService {
                      }));
   }
 
+  public isLoggedIn(): boolean{
+       return this.authStorageService.getJwtToken() != null;
+  }
+
   public logout(){
       this.authStorageService.clearAllAuthInfo();
+      this.loggedInSource.next(false);
+      this.usernameSource.next('');
   }
 }

@@ -44,7 +44,6 @@ export class AuthStorageService {
   }
 
   public getJwtToken() {
-    console.log('jwt: '+AuthStorageService.localStorageService.retrieve('authenticationToken').toString());
     return AuthStorageService.localStorageService.retrieve('authenticationToken');
   } 
 
