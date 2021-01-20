@@ -7,6 +7,7 @@ import { CreatePostComponent } from './post/create-post/create-post.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { CreateSubreddiusComponent } from './subreddius/create-subreddius/create-subreddius.component';
 import { ListSubreddiusesComponent } from './subreddius/list-subreddiuses/list-subreddiuses.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'create-subreddius', component: CreateSubreddiusComponent},
   {path:'create-post', component: CreatePostComponent},
   {path:"sign-up", component: SignupComponent},
-  {path:"login", component: LoginComponent}
+  {path:"login", component: LoginComponent},
+  {path:"user/:username", component: UserProfileComponent}
 ];
 
 @NgModule({

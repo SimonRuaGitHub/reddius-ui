@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goToUserProfile(){
-       
+       this.router.navigateByUrl('/user/'+this.authService.getUsername());
   }
 
   logout(){

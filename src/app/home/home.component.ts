@@ -10,10 +10,17 @@ import { PostModel } from '../shared/post-model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  listPosts:Array<PostModel> = [];
+
+  constructor(private postService:PostService) { 
+    console.log('Loading post titles');
+  }
 
   ngOnInit(): void {
-
+          this.postService.getAllPosts().subscribe(posts => {
+            this.listPosts = posts;
+            console.log(this.listPosts);
+         })
   }
 
 }

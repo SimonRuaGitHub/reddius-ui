@@ -37,4 +37,10 @@ export class PostService {
          }));
   }
 
+  public getAllPostsByUser(username:string):Observable<Array<PostModel>>{
+         console.log(username);
+         console.log(URL_API_ENDPOINTS.userPosts.replace("{username}",username));
+         return this.http.get<Array<PostModel>>( URL_API_ENDPOINTS.userPosts.replace("{username}",username) );
+  }
+
 }

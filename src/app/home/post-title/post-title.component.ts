@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { PostModel } from 'src/app/shared/post-model';
@@ -10,18 +10,11 @@ import { PostModel } from 'src/app/shared/post-model';
 })
 export class PostTitleComponent implements OnInit {
 
-  listPosts:Array<PostModel> = [];
+  @Input() listPosts:Array<PostModel> = [];
 
-  constructor(private postService:PostService, private router:Router) {
-    console.log('Loading post titles');
-  }
+  constructor(private postService:PostService, private router:Router) {}
 
-  ngOnInit(): void {
-      this.postService.getAllPosts().subscribe(posts => {
-        this.listPosts = posts;
-        console.log(this.listPosts);
-   })
-  }
+  ngOnInit(): void {}
 
   public goToPost(id: number): void{
        this.router.navigateByUrl('/view-post/'+id);
