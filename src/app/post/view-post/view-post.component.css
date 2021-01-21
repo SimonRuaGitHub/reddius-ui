@@ -22,3 +22,20 @@
 .space-info-action{
     margin-left: 10px;
 }
+
+.not-logged-in{
+    border-style: solid; 
+    border-width: thin;
+    border-color: gray;
+    border-radius: 5px;
+    align-items: center;
+    padding: 12px 8px;
+    margin-left: 2px;
+    margin-right: 30px;
+}
+
+.login-invitation{
+    color:gray;
+    font-family: Verdana;
+    font-size: 14px;
+}

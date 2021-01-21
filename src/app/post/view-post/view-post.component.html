@@ -17,8 +17,21 @@
                                 <fa-icon style="color: gray" [icon]="faCommentAlt"></fa-icon>
                                 <span class="additional-info-options"> {{ post$.commentCount }} Comments</span>
                             </div>
-                            <app-comment-post [post]="post$"></app-comment-post>
-                            <app-comments-list [postid]="post$.postId"></app-comments-list>
+                            <div style="margin-top: 10px;">
+                                <div *ngIf="isLoggedIn; else elseBlock">
+                                    <app-comment-post [post]="post$"></app-comment-post>
+                                </div>  
+                                <ng-template #elseBlock>
+                                    <div class="row not-logged-in">
+                                            <div class="col-sm-7 login-invitation">
+                                                Log in or sign up to leave a comment  
+                                            </div>
+                                            <button type="button" class="btn btn-outline-primary" style="border-radius: 50px; margin-left:auto;">Log In</button>
+                                            <button type="button" class="btn btn-primary" style="border-radius: 50px; margin-left: 10px;">Sign Up</button>                                 
+                                    </div>                                   
+                                </ng-template>
+                                <app-comments-list [postid]="post$.postId"></app-comments-list>
+                            </div>                            
                         </div>
                     </div>
                 </div>   
