@@ -1,8 +1,8 @@
-.upvote:hover{
+.upvote-hover:hover,.upvote{
     color: green;
 }
 
-.downvote:hover{
+.downvote-hover:hover,.downvote{
     color: red;
 }
 

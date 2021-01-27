@@ -1,11 +1,11 @@
 <div class="btn-vote-column">
     <button class="btn">
-        <fa-icon class="upvote" [icon]="faArrowUp" (click)="vote(UPVOTE)"></fa-icon>
+        <fa-icon class="upvote-hover" [icon]="faArrowUp" (click)="vote(UPVOTE)" [class.upvote]="post.voteTypeOfUser == UPVOTE"></fa-icon>
    </button>
    <div>
        {{ post.voteCount }}
    </div>
    <button class="btn">
-       <fa-icon class="downvote" [icon]="faArrowDown" (click)="vote(DOWNVOTE)"></fa-icon>
+       <fa-icon class="downvote-hover" [icon]="faArrowDown" (click)="vote(DOWNVOTE)" [class.downvote]="post.voteTypeOfUser == DOWNVOTE"></fa-icon>
    </button>
 </div>

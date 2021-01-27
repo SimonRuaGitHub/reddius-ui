@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
@@ -13,7 +13,7 @@ import { VoteModel } from '../vote-model';
   templateUrl: './vote-button.component.html',
   styleUrls: ['./vote-button.component.css']
 })
-export class VoteButtonComponent implements OnInit {
+export class VoteButtonComponent implements AfterContentInit {
 
   @Input() post: PostModel;
   faArrowUp = faArrowUp;
@@ -21,11 +21,12 @@ export class VoteButtonComponent implements OnInit {
   private voteModel: VoteModel;
   readonly UPVOTE: VoteType = VoteType.Upvote;
   readonly DOWNVOTE: VoteType = VoteType.Downvote;
+  private voteType$: string;
 
   constructor(private voteService:VoteService, private postService:PostService, private toastService:ToastrService) { }
 
-  ngOnInit(): void {
-     
+  ngAfterContentInit(): void {
+    this.searchPost();
   }
 
   vote(voteType: VoteType):void{
@@ -37,14 +38,14 @@ export class VoteButtonComponent implements OnInit {
     };
 
      this.voteService.votePost(this.voteModel).subscribe(() => {
-        this.refreshPost();
+        this.searchPost();
     }, error => {
        this.toastService.error("There was an error trying to vote on Post");
        throwError(error);
     });
   }
 
-  private refreshPost(){
-      this.postService.getPost(this.post.postId).subscribe(post => this.post = post);
+  private searchPost(){
+      this.postService.getPost(this.post.postId).subscribe(post => {this.post = post});
   }
 }

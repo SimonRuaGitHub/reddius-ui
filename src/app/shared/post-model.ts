@@ -1,3 +1,5 @@
+import { VoteType } from "../enums/VoteType";
+
 export class PostModel {
     postId:number;
     userId:number;
@@ -9,4 +11,5 @@ export class PostModel {
     voteCount:number;
     commentCount:number;
     duration:string;
+    voteTypeOfUser:VoteType;
 }
