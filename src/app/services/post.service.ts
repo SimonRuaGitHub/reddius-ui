@@ -43,4 +43,9 @@ export class PostService {
          return this.http.get<Array<PostModel>>( URL_API_ENDPOINTS.userPosts.replace("{username}",username) );
   }
 
+  public getAllPostsByPage(page:number):Observable<Array<PostModel>>{
+         console.log("Posts from page: ",page);
+         return this.http.get<Array<PostModel>>(URL_API_ENDPOINTS.postsByPage.replace("{page}",page.toString()));
+  }
+
 }

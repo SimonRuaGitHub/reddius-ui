@@ -10,5 +10,6 @@
     "createComment":"/api/comments",
     "allCommentsByPost":"/api/comments/by-postId/{id}",
     "logout":"/api/auth/logout",
-    "allUserPosts":"/api/posts/by-username/{username}"
+    "allUserPosts":"/api/posts/by-username/{username}",
+    "postsByPage":"/api/posts/page/{page}"
 }

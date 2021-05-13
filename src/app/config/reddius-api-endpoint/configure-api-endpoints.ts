@@ -8,7 +8,8 @@ export const URL_API_ENDPOINTS = {
        createComment: Environment.dnsDev.concat(Resources.createComment),
        allCommentsByPost: Environment.dnsDev.concat(Resources.allCommentsByPost),
        logout: Environment.dnsDev.concat(Resources.logout),
-       userPosts: Environment.dnsDev.concat(Resources.allUserPosts)
+       userPosts: Environment.dnsDev.concat(Resources.allUserPosts),
+       postsByPage: Environment.dnsDev.concat(Resources.postsByPage)
 }
 
 
